@@ -1,0 +1,94 @@
+@mixin customizer-customizer-body-colours(
+	$bg: #f6f6f6,
+	$breaker: #9b9b9b,
+	$color: #4a4a4a,
+	$link: #418ad0,
+	$hover: #f7ae00,
+	$small: #919191,
+	$green: #6baf21
+) {
+	.content-area {
+		.lsx-wc-checkout-steps {
+			.lsx-wc-checkout-steps-item {
+				color: $green;
+
+				&.lsx-wc-checkout-steps-item-done {
+					@media (max-width: 767px) {
+						.fa-check-circle {
+							background-color: $green;
+							&:after {
+								background-color: #fff;
+							}
+						}
+					}
+				}
+
+				&:not(.lsx-wc-checkout-steps-item-done) {
+					@media (max-width: 767px) {
+						& > span,
+						a > span {
+							&:before {
+								background-color: $link;
+								color: #fff;
+							}
+						}
+					}
+				}
+
+				&.lsx-wc-checkout-steps-item-current {
+					color: $link;
+
+					& > span,
+					a > span {
+						@media (max-width: 767px) {
+							&:before {
+								background-color: $link;
+							}
+						}
+					}
+				}
+
+				&.lsx-wc-checkout-steps-item-disabled {
+					color: $breaker;
+					.lsx-wc-checkout-steps-counter {
+						background-color: $breaker;
+					}
+					& > span,
+					a > span {
+						@media (max-width: 767px) {
+							&:before {
+								background-color: $breaker;
+							}
+						}
+					}
+				}
+			}
+
+			.lsx-wc-checkout-steps-counter {
+				background-color: $link;
+				color: #fff;
+
+				.lsx-wc-checkout-steps-item-current & {
+					background-color: $hover;
+				}
+				.lsx-wc-checkout-steps-item-disabled & {
+					background-color: $breaker;
+				}
+			}
+
+			.lsx-wc-checkout-steps-link,
+			a.lsx-wc-checkout-steps-link:not(.btn):not(.wp-block-button__link) {
+				color: $green;
+				&:hover,
+				&:focus {
+					@media (max-width: 767px) {
+						color: $link !important;
+					}
+				}
+			}
+		}
+	}
+	.lsx-block-accordion details summary:before {
+		color: $link;
+	}
+}
